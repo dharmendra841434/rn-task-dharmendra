@@ -25,7 +25,3 @@ export interface PlaceholderItem {
   title: string;
   body: string;
 }
-
-export type HomeStackParamList = {
-  Home: undefined;
-};
