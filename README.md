@@ -1,97 +1,118 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# DharmendaTask Navigation Demo
 
-# Getting Started
+This is a **React Native** project demonstrating a real-world scenario of implementing, reverting, and improving a navigation structure.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Tech Stack
 
-## Step 1: Start Metro
+- **Framework**: React Native (0.83.1)
+- **Navigation**: React Navigation 7 (Bottom Tabs, Native Stack)
+- **Icons**: Lucide React Native
+- **Language**: TypeScript
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Getting Started
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+1.  **Install dependencies**:
 
-```sh
-# Using npm
-npm start
+    ```sh
+    npm install
+    # or
+    yarn install
+    ```
 
-# OR using Yarn
-yarn start
-```
+2.  **Start Metro**:
 
-## Step 2: Build and run your app
+    ```sh
+    npm start
+    # or
+    yarn start
+    ```
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+3.  **Run the app**:
+    ```sh
+    npm run android
+    # or
+    npm run ios
+    ```
 
-### Android
+---
 
-```sh
-# Using npm
-npm run android
+Note: The UI styling in this project is intentionally kept minimal, as the primary focus of this assessment is on code structure, navigation architecture, TypeScript usage, and Git workflow, strictly adhering to the requirements outlined in the assessment document.
 
-# OR using Yarn
-yarn android
-```
+# 🔁 Revert Task Explanation
 
-### iOS
+As part of the assessment, I simulated a real-world scenario where an initial implementation needs to be reverted and improved.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+## Step 1: Initial Navigation Implementation (v1)
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+Implemented basic navigation using:
 
-```sh
-bundle install
-```
+- Bottom Tab Navigator
+- Stack Navigator inside tabs
 
-Then, and every time you update your native dependencies, run:
+This version established the foundational navigation structure.
 
-```sh
-bundle exec pod install
-```
+**Commit:**
+`add bottom tabs and stack navigation`
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## Step 2: Reverting the Initial Implementation
 
-```sh
-# Using npm
-npm run ios
+After reviewing the initial approach, I reverted the navigation changes using `git revert`.
 
-# OR using Yarn
-yarn ios
-```
+`git revert` was intentionally chosen instead of `git reset` to:
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+- Preserve commit history
+- Maintain transparency for future developers
+- Follow best practices used in team environments
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+**Revert Commit:**
+`revert: remove bottom tabs and stack navigation`
 
-## Step 3: Modify your app
+## Step 3: Improved Navigation Re-implementation (v2)
 
-Now that you have successfully run the app, let's make changes!
+Re-implemented navigation with an improved, more scalable approach:
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+- Introduced separate stack navigators per tab
+- Centralized stack creation to reduce duplication
+- Added a custom bottom tab bar
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+This structure provides better separation of concerns and is easier to extend as the app grows.
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+**Commit:**
+`reimplement navigation with improved structure`
 
-## Congratulations! :tada:
+## Versioning & Traceability
 
-You've successfully run and modified your React Native App. :partying_face:
+Both navigation implementations are preserved in Git history.
 
-### Now what?
+Tags were added for easy reference:
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+- `navigation-v1` → Initial navigation implementation
+- `navigation-v2` → Improved navigation implementation
 
-# Troubleshooting
+This approach allows any developer to inspect, compare, or restore previous implementations if required.
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Why This Approach?
 
-# Learn More
+This workflow mirrors real production scenarios where:
 
-To learn more about React Native, take a look at the following resources:
+- Initial solutions are iterated upon
+- Changes are reverted safely
+- Improvements are introduced without losing historical context
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+It demonstrates clean Git practices, thoughtful decision-making, and team-oriented development.
+
+### Revert Task Evidence
+
+- Initial navigation was implemented and committed
+- The navigation commit was reverted using `git revert`
+- Navigation was reimplemented with an improved structure
+
+Relevant commits:
+
+- add bottom tabs and stack navigation
+- Revert "add bottom tabs and stack navigation"
+- reimplement navigation with improved structure
+
+### Git History
+
+![Git Revert Evidence](screenshots/git-history.png)
